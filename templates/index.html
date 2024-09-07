@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Price Prediction</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <link rel="stylesheet" href="global.css">
+    
+</head>
+<body style="
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    "
+>
+    <div class="inps" 
+    >
+        <h1 class="head" style="text-align: center;">Crop Price Prediction</h1>
+        <div class="item"
+        style="
+        margin: 50px;
+        position: relative;
+        width: fit-content;
+        "
+        >
+            <label for="commodity">Select Commodity:</label>
+            <select id="commodity">
+                <option value="" disabled selected>Select a crop</option>
+                <option value="crop">Rice</option>
+                <option value="crop">Wheat</option>
+                <option value="crop">Atta</option>
+                <option value="crop">Gram Dal</option>
+                <option value="crop">Tur Dal</option>
+                <option value="crop">Urad Dal</option>
+                <option value="crop">Moong Dal</option>
+                <option value="crop">Masoor Dal</option>
+                <option value="crop">Suagr</option>
+                <option value="crop">Milk</option>
+                <option value="crop">Groundnut Oil</option>
+                <option value="crop">Mustard Oil</option>
+                <option value="crop">Vanaspati</option>
+                <option value="crop">Soya Oil</option>
+                <option value="crop">Sunflower Oil</option>
+                <option value="crop">Palm Oil</option>
+                <option value="crop">Gur</option>
+                <option value="crop">Tea</option>
+                <option value="crop">Salt</option>
+                <option value="crop">Potato</option>
+                <option value="crop">Onion</option>
+                <option value="crop">Tomato</option>
+            </select>
+        </div>
+        <div class="item"
+        style="
+        margin: 50px;
+        position: relative;
+        width: fit-content;
+        ">
+            <label for="commodity">Select Zone:</label>
+            <select id="commodity">
+                <option value="" disabled selected>Select a zone</option>
+                <option value="zone">NORTH ZONE</option>
+                <option value="zone">WEST ZONE</option>
+                <option value="zone">EAST ZONE</option>
+                <option value="zone">NORTH-EAST ZONE</option>
+                <option value="zone">SOUTH ZONE</option>
+            </select>
+        </div>
+        <!-- <div class="item"
+        style="
+        margin: 50px;
+        position: relative;
+        width: fit-content;
+        ">
+            <label for="commodity">Select Month(from current):</label>
+            <select id="commodity">
+                <option value="" disabled selected>Select the duration</option>
+                <option value="month">1 month</option>
+                <option value="month">2 months</option>
+                <option value="month">3 months</option>
+                <option value="month">4 months</option>
+                <option value="month">5 months</option>
+                <option value="month">6 months</option>
+                <option value="month">7 months</option>
+                <option value="month">8 months</option>
+                <option value="month">9 months</option>
+                <option value="month">10 months</option>
+                <option value="month">11 months</option>
+                <option value="month">1 year</option>
+                
+            </select>
+        </div> -->
+        <div class="item" style="text-align: center; margin-top: 20px;">
+            <br>
+            <button type="submit" id="submitButton" style="padding: 10px 20px; font-size: 16px;">Submit</button>
+        </div>
+        <canvas id="priceChart"></canvas>
+        <table id="priceTable"></table>
+    </div>
+    <script>
+        document.getElementById('submitButton').addEventListener('click', function() {
+            const selectedCrop = document.getElementById('commodity').value;
+            const selectedZone = document.getElementById('zone').value;
+            const selectedMonth = document.getElementById('month').value;
+
+            if (selectedCrop && selectedZone && selectedMonth) {
+                // Redirect to the results page with selected values as query parameters
+                window.location.href = `results.html?crop=${selectedCrop}&zone=${selectedZone}&month=${selectedMonth}`;
+            } else {
+                alert("Please make sure all fields are selected.");
+            }
+        });
+    </script>
+    
+    
+</body>
+</html>
